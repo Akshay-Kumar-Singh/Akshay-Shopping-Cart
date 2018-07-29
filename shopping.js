@@ -257,7 +257,9 @@ var AddCart = () => {
                 if (valr > 0) {
                     cart.push({
                         Item: productz.name,
-                        Quantity: valr
+                        Quantity: valr,
+                        catgori: productz.category,
+                        prce:productz.price
                     });
                     cartdata = cartdata + "<tr><td>" + productz.name + "</td><td>" + valr + "</td></tr>";
                     console.log(cartdata);
@@ -275,32 +277,32 @@ var AddCart = () => {
 
 
 var checkout = () => {
-    if (clicked) {
-        if (save.length > 0) {
+    finaldata="";
+    tprc=0;
+        if (cart.length > 0) {
             finaldata = "<table align=center id=tab2><tr><th>Item</th><th>M.R.P.</th><th>Category</th><th>Quantity</th><th>FinalPrice</th></tr>";
-            save.forEach((finalprod) => {
-                if (document.getElementById(finalprod.name) != null) {
-                    valr = document.getElementById(finalprod.name).value;
+            cart.forEach((finalprod) => {
+                if (document.getElementById(finalprod.Item) != null) {
+                    valr = document.getElementById(finalprod.Item).value;
                     if (valr > 0) {
-                        fval = valr * finalprod.price;
+                        fval = valr * finalprod.prce;
                         tprc = tprc + fval;
                         finalv.push({
-                            Items: finalprod.name,
-                            cost: finalprod.price,
-                            categ: finalprod.category,
+                            Items: finalprod.Item,
+                            cost: finalprod.prce,
+                            categ: finalprod.catgori,
                             quant: valr,
                             finalprice: fval
                         });
-                        finaldata = finaldata + "<tr><td>" + finalprod.name + "</td><td>" + finalprod.price + "</td><td>" + finalprod.category + "</td><td>" + valr + "</td><td>" + fval + "<//td></tr>"
+                        finaldata = finaldata + "<tr><td>" + finalprod.Item + "</td><td>" + finalprod.prce + "</td><td>" + finalprod.catgori + "</td><td>" + valr + "</td><td>" + fval + "<//td></tr>"
                     }
                 }
             });
+            finaldata = finaldata + "<tr><td></td><td></td><td></td><td><b>" + "Grand Total---->" + "<b></td><td>" + tprc + "</td></tr>"
             finaldata = finaldata + "</table>";
             document.getElementById("content").innerHTML = finaldata;
         } else {
             document.getElementById("content").innerHTML = "Please select something from the searched items";
         }
-    } else {
-        document.getElementById("content").innerHTML = "Please Add Something in the cart"
-    }
+   cart=[];
 }
