@@ -241,6 +241,7 @@ function search() {
 function reset() {
     document.getElementById("content").innerHTML = "";
     document.getElementById("input").value = "";
+    save=[];
 }
 
 var valr = 0;
@@ -270,7 +271,7 @@ var AddCart = () => {
         cartdata = cartdata + "</table>";
         document.getElementById("detail").innerHTML = cartdata;
     } else {
-        document.getElementById("detail").innerHTML = "Please select some items first";
+       alert("Please select some items first");
     }
 }
 
@@ -302,7 +303,7 @@ var checkout = () => {
             finaldata = finaldata + "</table>";
             document.getElementById("content").innerHTML = finaldata;
         } else {
-            document.getElementById("content").innerHTML = "Please select something from the searched items";
+            alert("Please add some items in the cart first.");
         }
    cart=[];
 }
