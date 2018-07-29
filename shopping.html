@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>
+        Akshay-Shopping cart
+    </title>
+    <link href="shopping.css" rel="stylesheet" type="text/css" />
+    <script src="shopping.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="big">
+            <div class="header">
+                <div class="set1">
+                    <h3>Search Your Items</h3>
+                    <input type="text" size="30" id="input" placeholder="Search here">
+                    <input type="button" onclick="search()" value="Search" />
+                </div>
+            </div>
+            <div id="content">
+
+            </div>
+            <div class="footer" align="center">
+                <div class="set2">
+                    <button onclick="reset()">Reset</button>
+                    <button onclick="AddCart()">Add Item</button>
+                </div>
+            </div>
+        </div>
+        <div id="small">
+            <div class="title" align="center">
+                <h1>
+                    <u>Items Added in Cart</u>
+                </h1>
+            </div>
+            <div id="detail">
+            </div>
+            <div id="foot">
+                <div id="set3">
+                    <button onclick="checkout()">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
